@@ -1,6 +1,7 @@
 import click
 import os
 from yats.channel_network_dataset import ChannelNetworkFetcher
+from yats.channel_network_build import build_network
 
 @click.group()
 def channel_network():
@@ -27,7 +28,7 @@ def fetch(seed, out_dir, name, iterations):
 @click.option("--featured/--no-featured", default=True)
 @click.option("--subscribed/--no-subscribed", default=True)
 def build(dataset, out_file, related, featured, subscribed):
-    print("build network")
+    build_network(dataset, out_file)
 
 if __name__ == "__main__":
     channel_network()
