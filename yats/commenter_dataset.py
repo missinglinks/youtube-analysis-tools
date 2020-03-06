@@ -1,6 +1,7 @@
 import os
 import sys
 import requests
+import random
 from .zip_archive import ZipArchive
 from pyg.reader import YoutubeArchiveReader
 from .config import YAC_BASE
@@ -32,8 +33,10 @@ def build_commenter_dataset(archive_filepaths, out_dir, filename):
 
         print(len(user_ids))
 
-        for i, user_id in enumerate(user_ids):
-            print("{}/{}".format(i,len(user_ids)))
+        sample = random.sample(user_ids, 2000)
+
+        for i, user_id in enumerate(sample):
+            print("{}/{}".format(i,len(sample)))
 
             filepath = "{}.json".format(user_id)
             if not out_archive.contains(filepath):

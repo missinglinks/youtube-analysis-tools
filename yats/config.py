@@ -1,1 +1,1 @@
-YAC_BASE = "http://37.120.165.192:5000"
+YAC_BASE = "http://localhost:5000"
